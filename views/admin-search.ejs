@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Students - Admin Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Search Students</h1>
+            <nav class="nav-bar">
+                <a href="/admin/dashboard" class="back-link">← Dashboard</a>
+                <a href="/logout" class="btn btn-logout">Logout</a>
+            </nav>
+        </header>
+        
+        <main class="search-page">
+            <div class="search-form">
+                <h2>Student Search</h2>
+                
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="error-message">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <form action="/admin/search" method="POST">
+                    <div class="form-group">
+                        <label for="searchQuery">Search by Name, Student ID, or Email:</label>
+                        <input type="text" id="searchQuery" name="searchQuery" 
+                               value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>" 
+                               placeholder="Enter search term..." required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+            
+            <% if (typeof students !== 'undefined' && students.length > 0) { %>
+                <div class="search-results">
+                    <h3>Search Results (<%= students.length %> found)</h3>
+                    <% students.forEach(student => { %>
+                        <div class="student-card">
+                            <div class="student-photo">
+                                <img src="<%= student.photo %>" alt="Student Photo" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRjVGNUY1Ii8+CjxjaXJjbGUgY3g9IjQwIiBjeT0iMzIiIHI9IjEyIiBmaWxsPSIjQ0NDIi8+CjxwYXRoIGQ9Ik0xNiA2NEg2NFY1OEM0OCA0OCAzMiA0OCAxNiA1OFY2NFoiIGZpbGw9IiNDQ0MiLz4KPC9zdmc+'">
+                            </div>
+                            <div class="student-info">
+                                <h4><%= student.fullName %></h4>
+                                <p><strong>Student ID:</strong> <%= student.studentId %></p>
+                                <p><strong>Email:</strong> <%= student.email %></p>
+                                <p><strong>Contact:</strong> <%= student.contactNumber %></p>
+                                <p><strong>Year/Semester:</strong> <%= student.currentYear %>/<%= student.currentSemester %></p>
+                                
+                                <% if (student.examResults && student.examResults.length > 0) { %>
+                                    <div class="exam-results">
+                                        <h5>Exam Results:</h5>
+                                        <% student.examResults.forEach(result => { %>
+                                            <div class="result-summary">
+                                                <p>Year <%= result.year %> - Semester <%= result.semester %> | GPA: <%= result.gpa %></p>
+                                                <ul>
+                                                    <% result.subjects.forEach(subject => { %>
+                                                        <li><%= subject.name %>: <%= subject.grade %> (<%= subject.credits %> credits)</li>
+                                                    <% }); %>
+                                                </ul>
+                                            </div>
+                                        <% }); %>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else if (typeof searchQuery !== 'undefined') { %>
+                <div class="no-results">
+                    <p>No students found matching your search criteria.</p>
+                </div>
+            <% } %>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 NCA Campus. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

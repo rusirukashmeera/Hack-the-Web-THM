@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - NCA Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Dashboard</h1>
+            <nav class="nav-bar">
+                <span>Welcome, <%= student.fullName %></span>
+                <a href="/logout" class="btn btn-logout">Logout</a>
+            </nav>
+        </header>
+        
+        <main class="dashboard">
+            <div class="profile-section">
+                <h2>Personal Details</h2>
+                <div class="profile-card">
+                    <div class="profile-photo">
+                        <img src="<%= student.photo %>" alt="Student Photo" onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBmaWxsPSIjRjVGNUY1Ii8+CjxjaXJjbGUgY3g9Ijc1IiBjeT0iNjAiIHI9IjI1IiBmaWxsPSIjQ0NDIi8+CjxwYXRoIGQ9Ik0zMCAxMjBIMTIwVjExMEM5MCA5MCA2MCA5MCAzMCAxMTBWMTIwWiIgZmlsbD0iI0NDQyIvPgo8L3N2Zz4='">
+                    </div>
+                    <div class="profile-info">
+                        <p><strong>Student ID:</strong> <%= student.studentId %></p>
+                        <p><strong>Full Name:</strong> <%= student.fullName %></p>
+                        <p><strong>Email:</strong> <%= student.email %></p>
+                        <p><strong>Contact Number:</strong> <%= student.contactNumber %></p>
+                        <p><strong>Current Year:</strong> <%= student.currentYear %></p>
+                        <p><strong>Current Semester:</strong> <%= student.currentSemester %></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2>Exam Results</h2>
+                <% if (student.examResults && student.examResults.length > 0) { %>
+                    <% student.examResults.forEach(result => { %>
+                        <div class="result-card">
+                            <h3>Year <%= result.year %> - Semester <%= result.semester %></h3>
+                            <div class="subjects">
+                                <% result.subjects.forEach(subject => { %>
+                                    <div class="subject">
+                                        <span class="subject-name"><%= subject.name %></span>
+                                        <span class="subject-grade"><%= subject.grade %></span>
+                                        <span class="subject-credits"><%= subject.credits %> credits</span>
+                                    </div>
+                                <% }); %>
+                            </div>
+                            <p class="gpa"><strong>GPA: <%= result.gpa %></strong></p>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No exam results available.</p>
+                <% } %>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 NCA Campus. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

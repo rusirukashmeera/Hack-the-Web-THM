@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - NCA Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NCA Campus Student Portal</h1>
+            <a href="/" class="back-link">← Back to Home</a>
+        </header>
+        
+        <main class="login-form">
+            <div class="form-container">
+                <h2>Student Login</h2>
+                
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="error-message">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <form action="/student-login" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <!-- Hidden field for vulnerability (Task 1) -->
+                    <input type="hidden" name="id" value="student">
+                    
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                
+                <div class="test-credentials">
+                    <h3>Test Credentials</h3>
+                    <p><strong>Username:</strong> user1</p>
+                    <p><strong>Password:</strong> pwd@user1</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 NCA Campus. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

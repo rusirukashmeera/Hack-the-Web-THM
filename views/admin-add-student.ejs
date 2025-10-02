@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student - Admin Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add New Student</h1>
+            <nav class="nav-bar">
+                <a href="/admin/dashboard" class="back-link">← Dashboard</a>
+                <a href="/logout" class="btn btn-logout">Logout</a>
+            </nav>
+        </header>
+        
+        <main class="add-student-page">
+            <div class="form-container">
+                <h2>Student Registration Form</h2>
+                
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="error-message">
+                        <%= error %>
+                    </div>
+                <% } %>
+                
+                <% if (typeof success !== 'undefined') { %>
+                    <div class="success-message">
+                        <%= success %>
+                    </div>
+                <% } %>
+                
+                <form action="/admin/add-student" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="photo">Student Photo (Optional):</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                        <small>Photo is optional - A default photo will be used if not provided</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Number:</label>
+                        <input type="tel" id="contactNumber" name="contactNumber" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="currentYear">Current Year:</label>
+                            <select id="currentYear" name="currentYear" required>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currentSemester">Current Semester:</label>
+                            <select id="currentSemester" name="currentSemester" required>
+                                <option value="1">1st Semester</option>
+                                <option value="2">2nd Semester</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="text" id="age" name="age" placeholder="Enter student age">
+                        <small>Optional field</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add Student</button>
+                </form>
+                
+                <div class="info-note">
+                    <h3>Note:</h3>
+                    <p>Student ID will be auto-generated upon successful registration.</p>
+                    <p>Default login credentials will be provided after registration.</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 NCA Campus. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

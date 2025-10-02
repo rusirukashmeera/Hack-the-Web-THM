@@ -1,0 +1,529 @@
+/* NCA Student Portal CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+main {
+    flex: 1;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Landing Page Styles */
+.landing-page {
+    text-align: center;
+}
+
+.welcome-section {
+    margin-bottom: 40px;
+}
+
+.welcome-section h2 {
+    color: #667eea;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.login-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.info-section {
+    margin-top: 40px;
+    text-align: left;
+}
+
+.info-section h3 {
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.info-section ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.info-section li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.info-section li:before {
+    content: "✓";
+    color: #4CAF50;
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #333;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+}
+
+.btn-logout {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #c82333;
+}
+
+/* Form Styles */
+.login-form, .add-student-page, .search-page {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-container {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2 {
+    color: #667eea;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group small {
+    color: #6c757d;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-section, .results-section, .admin-menu {
+    margin-bottom: 30px;
+}
+
+.profile-card {
+    display: flex;
+    gap: 30px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #667eea;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.result-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.result-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.subjects {
+    margin-bottom: 15px;
+}
+
+.subject {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.gpa {
+    text-align: right;
+    color: #28a745;
+    font-size: 18px;
+}
+
+/* Admin Styles */
+.menu-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-card {
+    flex: 1;
+    min-width: 250px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.menu-card h3 {
+    margin-bottom: 15px;
+}
+
+.menu-card p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+/* Search Results */
+.search-results {
+    margin-top: 30px;
+}
+
+.student-card {
+    display: flex;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student-photo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.student-info {
+    flex: 1;
+}
+
+.student-info h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.exam-results {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.exam-results h5 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.result-summary {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.result-summary ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Message Styles */
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}
+
+.test-credentials, .hint-section, .info-note {
+    margin-top: 30px;
+    padding: 20px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    border-left: 4px solid #2196f3;
+}
+
+.test-credentials h3, .hint-section h3, .info-note h3 {
+    color: #1976d2;
+    margin-bottom: 15px;
+}
+
+/* Error Page */
+.error-page {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.error-content h2 {
+    color: #dc3545;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: #6c757d;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #343a40;
+    color: white;
+    border-radius: 10px;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    .login-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .menu-cards {
+        flex-direction: column;
+    }
+    
+    .student-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .nav-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Unified Login Styles */
+.unified-login {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.cred-section {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.cred-section h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.cred-section p {
+    margin: 5px 0;
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+}
+
+.unified-login .login-card small {
+    display: block;
+    color: #6c757d;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    font-style: italic;
+}

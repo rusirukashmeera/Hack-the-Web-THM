@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - NCA Portal</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <nav class="nav-bar">
+                <span>Welcome, Admin</span>
+                <a href="/logout" class="btn btn-logout">Logout</a>
+            </nav>
+        </header>
+        
+        <main class="dashboard">
+            <div class="admin-menu">
+                <h2>Administrative Functions</h2>
+                <div class="menu-cards">
+                    <div class="menu-card">
+                        <h3>Search Students</h3>
+                        <p>Search and view student information and records</p>
+                        <a href="/admin/search" class="btn btn-primary">Search Students</a>
+                    </div>
+                    
+                    <div class="menu-card">
+                        <h3>Add Student</h3>
+                        <p>Register new students in the system</p>
+                        <a href="/admin/add-student" class="btn btn-primary">Add New Student</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-stats">
+                <h3>Quick Information</h3>
+                <p>Use the navigation above to access student management functions.</p>
+                <p>All actions are logged for security purposes.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 NCA Campus. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
